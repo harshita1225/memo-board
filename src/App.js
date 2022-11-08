@@ -16,12 +16,15 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(alltodo));
+  }, [alltodo]);
+
   console.log("this is item", items);
   const handleClick = () => {
     if (todo) {
       setAllTodo([...alltodo, todo]);
       setTodo("");
-      localStorage.setItem("items", JSON.stringify(alltodo));
     } else alert("Please type a task");
   };
 
